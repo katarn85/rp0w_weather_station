@@ -1,0 +1,5 @@
+{
+    "weather_api_root": "https://api.weather.gov/gridpoints/",
+    "station": "mystation",
+    "gridpoints" : "1,2"
+}
