@@ -29,7 +29,19 @@ def main():
     api_params = load_config(config_path)
     api_url = build_api_url(**api_params)
 
-    print(api_url)
+    res = requests.get(api_url)
+    weather_raw = {}
+
+    if res.status_code == 200:
+        weather_raw = json.loads(res.content)
+    else:
+        print(f"Failed to connect to '{api_url}'!")
+
+    for period in weather_raw["properties"]["periods"]:
+        #print(f"{period["name"]}, {period["detailedForecast"]}")
+        print("{}, {}".format(period["name"], period["detailedForecast"]))
+
+
 
     return
 
