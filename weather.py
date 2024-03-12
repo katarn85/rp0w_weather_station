@@ -38,10 +38,7 @@ def main():
         print(f"Failed to connect to '{api_url}'!")
 
     for period in weather_raw["properties"]["periods"]:
-        #print(f"{period["name"]}, {period["detailedForecast"]}")
         print("{}, {}".format(period["name"], period["detailedForecast"]))
-
-
 
     return
 
